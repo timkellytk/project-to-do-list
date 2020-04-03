@@ -1,0 +1,15 @@
+# Instructions
+- Create objects for to-do list items
+- The to-do objects need to include title, description, dueDate, priority, notes and checklist
+- You should have projects of seperate to-do list items
+- There should be a default project to put to-do list items
+- Users should be able to create new projects
+- Users should be able to choose what project to put a to-do list 
+- Seperate your application logic from DOM layer stuff
+- Seperate your logic into seperate modules using npm and webpack 
+- Users should be able to view all projects
+- Users should should be able to view to-do's in each project
+- Users should be able to expand to-do's details
+- Users should be able to edit / delete to-do's
+- You should use local storage to save a user's project and to-do's 
+- You want to add an external library with webpack to make the due date's more readable for the to-do items https://github.com/date-fns/date-fns
