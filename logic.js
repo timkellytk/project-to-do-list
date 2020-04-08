@@ -1,19 +1,19 @@
-// Creating projects logic
+// Project logic
 const allProjects = [];
-const project = (name) => {
-    resetProjectsInactive();
+const createProject = (name) => {
+    resetAllProjectsInactive();
     allProjects.push({
         name,
         toDoItems: [], 
         active: true,
     });
 }
-function resetProjectsInactive() {
+function resetAllProjectsInactive() {
     allProjects.forEach((obj) => {
         obj.active = false;
     })
 }
-const toDoItem = (title, description, dueDate, priority, notes) => {
+const createToDo = (title, description, dueDate, priority, notes) => {
     let activeProject = allProjects.filter(project => project.active == true)
     activeProject[0].toDoItems.push({
         title, 
@@ -25,10 +25,19 @@ const toDoItem = (title, description, dueDate, priority, notes) => {
     })
 }
 
-// Declaring test variables
-project('default1')
-toDoItem('Complete my washing', 'Get that good job ye', '1st June 2019', 'High', 'Notes...')
-project('default2')
-toDoItem('Complete my exercise', 'Get that good job ye', '1st June 2019', 'High', 'Notes...')
-project('default3')
-toDoItem('Complete The Odin Project', 'Get that good job ye', '1st June 2019', 'High', 'Notes...')
+// Test variables
+createProject('default1')
+createToDo('Complete my washing', 'Get that good job ye', '1st June 2019', 'High', 'Notes...')
+createProject('default2')
+createToDo('Complete my exercise', 'Get that good job ye', '1st June 2019', 'High', 'Notes...')
+createProject('default3')
+createToDo('Complete The Odin Project', 'Get that good job ye', '1st June 2019', 'High', 'Notes...')
+
+/* 
+
+Missing code logic
+- Delete a project
+- Delete a to-do
+- Edit a project name
+- Edit a to-do details
+*/
