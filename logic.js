@@ -8,15 +8,12 @@ const createProject = (name) => {
         active: true,
     });
 }
-const createToDo = (name, description, dueDate, priority, notes) => {
+const createToDo = (name, dueDate) => {
     let activeProject = allProjects.filter(project => project.active === true);
     let toDoArray = activeProject[0].toDoItems;
     toDoArray.push({
         name, 
-        description,
         dueDate,
-        priority,
-        notes,
         active: true,
         complete: false,
     });
@@ -92,8 +89,8 @@ function editToDoNotes(notes) {
 
 // Test variables
 createProject('default1')
-createToDo('Complete my washing', 'Get that good job ye', '1st June 2019', 'High', 'Notes...')
+createToDo('Complete my washing', '1st June 2019')
 createProject('default2')
-createToDo('Complete my exercise', 'Get that good job ye', '1st June 2019', 'High', 'Notes...')
+createToDo('Complete my exercise', '1st June 2019')
 createProject('default3')
-createToDo('Complete The Odin Project', 'Get that good job ye', '1st June 2019', 'High', 'Notes...')
+createToDo('Complete The Odin Project', '1st June 2019')

@@ -1,6 +1,6 @@
 # The steps
-- Create a basic HTML page with JavaScript 
-- Create the JavaScript module to-do-list logic using console.logs
+- Create a basic HTML page with JavaScript (Done)
+- Create the JavaScript module to-do-list logic using console.logs (Done)
 - Create the HTML and CSS in Webflow
 - Install npm and webpack
 - Test webpack is working for 2+ modules
