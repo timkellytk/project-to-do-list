@@ -14,8 +14,9 @@ function resetAllProjectsInactive() {
     })
 }
 const createToDo = (title, description, dueDate, priority, notes) => {
-    let activeProject = allProjects.filter(project => project.active == true)
-    activeProject[0].toDoItems.push({
+    let activeProject = allProjects.filter(project => project.active === true)
+    let toDoArray = activeProject[0].toDoItems
+    toDoArray.push({
         title, 
         description,
         dueDate,
@@ -34,7 +35,6 @@ createProject('default3')
 createToDo('Complete The Odin Project', 'Get that good job ye', '1st June 2019', 'High', 'Notes...')
 
 /* 
-
 Missing code logic
 - Delete a project
 - Delete a to-do
