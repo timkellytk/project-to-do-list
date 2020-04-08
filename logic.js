@@ -70,21 +70,9 @@ function editToDoName(name) {
     let toDo = selectActiveToDo();
     toDo.name = name;
 }
-function editToDoDescription(description) {
-    let toDo = selectActiveToDo();
-    toDo.description = description;
-}
 function editToDoDueDate(dueDate) {
     let toDo = selectActiveToDo();
     toDo.dueDate = dueDate;
-}
-function editToDoPriority(priority) {
-    let toDo = selectActiveToDo();
-    toDo.priority = priority;
-}
-function editToDoNotes(notes) {
-    let toDo = selectActiveToDo();
-    toDo.notes = notes;
 }
 
 // Test variables
