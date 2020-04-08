@@ -1,7 +1,7 @@
 // Factory functions
 const allProjects = [];
 const createProject = (name) => {
-    editAllProjectsInactive();
+    setAllProjectsInactive();
     allProjects.push({
         name,
         toDoItems: [], 
@@ -35,13 +35,16 @@ function selectActiveToDoArray() {
 function selectActiveToDo(){
     let activeProject = allProjects.filter(project => project.active === true);
     let activeToDoArray = activeProject[0].toDoItems;
-    let activeToDo = toDoArray.filter(toDo => toDo.active === true);
+    let activeToDo = activeToDoArray.filter(toDo => toDo.active === true);
     return activeToDo[0];
 }
 
 // Active functions
-
-
+function setAllProjectsInactive() {
+    allProjects.forEach((obj) => {
+        obj.active = false;
+    });
+}
 
 // Project functions
 function deleteProject() {
@@ -68,23 +71,23 @@ function deleteToDo() {
 }
 function editToDoName(name) {
     let toDo = selectActiveToDo();
-    toDo[0].name = name;
+    toDo.name = name;
 }
 function editToDoDescription(description) {
     let toDo = selectActiveToDo();
-    toDo[0].description = description;
+    toDo.description = description;
 }
 function editToDoDueDate(dueDate) {
     let toDo = selectActiveToDo();
-    toDo[0].dueDate = dueDate;
+    toDo.dueDate = dueDate;
 }
 function editToDoPriority(priority) {
     let toDo = selectActiveToDo();
-    toDo[0].priority = priority;
+    toDo.priority = priority;
 }
 function editToDoNotes(notes) {
     let toDo = selectActiveToDo();
-    toDo[0].notes = notes;
+    toDo.notes = notes;
 }
 
 // Test variables
@@ -94,11 +97,3 @@ createProject('default2')
 createToDo('Complete my exercise', 'Get that good job ye', '1st June 2019', 'High', 'Notes...')
 createProject('default3')
 createToDo('Complete The Odin Project', 'Get that good job ye', '1st June 2019', 'High', 'Notes...')
-
-/* 
-Missing code logic
-- Delete a project
-- Delete a to-do
-- Edit a project name
-- Edit a to-do details
-*/
