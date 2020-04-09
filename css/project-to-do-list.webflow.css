@@ -164,11 +164,6 @@ body {
   margin-top: 20px;
 }
 
-.date-text:hover {
-  color: #070707;
-  text-decoration: underline;
-}
-
 .new-project-block {
   position: absolute;
   left: 0%;
@@ -212,6 +207,7 @@ body {
 
 .submit-btn {
   border-radius: 3px;
+  min-width: 100px;
   background-color: #dd6767;
   font-size: 14px;
 }
@@ -271,7 +267,7 @@ body {
   display: block;
 }
 
-.form {
+.flex-form {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
