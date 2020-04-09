@@ -1,3 +1,49 @@
+// Loading projects into DOM layer
+
+function loadProjects() {
+    allProjects.forEach((project) => {
+        let container = document.querySelector('#all-projects')
+        let div = document.createElement('div')
+        div.classList.add('project-text')
+        div.classList.add('project-container')
+        if (project.active === true) {
+            div.classList.add('active')
+        }
+
+        let text = document.createElement('div')
+        text.textContent = project.name
+
+        let image = document.createElement('img')
+        image.src = 'images/icons8-trash-1.svg'
+        image.classList.add('utility-btn')
+
+        div.appendChild(text)
+        div.appendChild(image)
+        container.appendChild(div)
+    })
+}
+
+loadProjects();
+
+function loadActiveProjectInfo() {
+    let activeProject = allProjects.filter((project) => project.active === true)
+    let headingValue = activeProject[0].name
+    let headingDescription = activeProject[0].description
+
+    const heading = document.querySelector('#project-name');
+    const inputHeading = document.querySelector('[name=edit-project-name]')
+    const description = document.querySelector('#project-description')
+    const inputDescripton = document.querySelector('[name=edit-project-description')
+    
+    heading.textContent = headingValue
+    inputHeading.value = headingValue
+    description.textContent = headingDescription
+    inputDescripton.value = headingDescription
+}
+
+loadActiveProjectInfo();
+
+
 // New project form
 const newProject = (() => {
     const addBtn = document.querySelector('#add-project');
@@ -184,5 +230,8 @@ editTask.btns.forEach((btn) => {
     btn.addEventListener('click', editTask.show)
 });
 
-// Delete task
+// Mark task as complete
+
+
+ // Delete task
 

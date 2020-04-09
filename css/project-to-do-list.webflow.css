@@ -31,7 +31,7 @@ body {
   padding: 70px 40px;
 }
 
-.container.grey-bg {
+.container.projects {
   background-color: #f5f5f5;
 }
 
@@ -176,6 +176,7 @@ body {
   right: 0%;
   bottom: 0%;
   display: none;
+  z-index: 99;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -293,6 +294,17 @@ body {
 }
 
 .task-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.project-container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

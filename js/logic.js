@@ -1,9 +1,10 @@
 // Factory functions
 const allProjects = [];
-const createProject = (name) => {
+const createProject = (name, description) => {
     setAllProjectsInactive();
     allProjects.push({
         name,
+        description,
         toDoItems: [], 
         active: true,
     });
@@ -76,9 +77,10 @@ function editToDoDueDate(dueDate) {
 }
 
 // Test variables
-createProject('default1')
+createProject('default1', 'this is your bulk standard default description')
 createToDo('Complete my washing', '1st June 2019')
-createProject('default2')
+createToDo('Complete my coding', '1st June 2019')
+createProject('default2', 'this is your bulk standard default description2')
 createToDo('Complete my exercise', '1st June 2019')
-createProject('default3')
+createProject('default3', 'this is your bulk standard default description3')
 createToDo('Complete The Odin Project', '1st June 2019')

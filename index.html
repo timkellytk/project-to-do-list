@@ -13,28 +13,45 @@
 </head>
 <body>
   <div class="w-layout-grid grid">
-    <div class="container grey-bg">
+    <div class="container projects">
       <h3>Projects</h3>
       <div class="divider"></div>
-      <div class="project-text active">Project 1</div>
-      <div class="project-text">Project 2</div>
+      <div id="all-projects">
+        <!--Projects are dynamically inserted using JavaScript-->
+      </div>
       <div class="add-btn" id="add-project">
         <div class="plus">+</div>
         <div class="add-project-text">Add Project</div>
+      </div>
+      <div class="new-project-block">
+        <div class="new-project-container">
+          <div class="create-project w-form">
+            <form>
+                <label for="project-name">Project Name</label>
+                <input type="text" class="text-field w-input" maxlength="256" name="new-project-name" required="">
+                <label for="project-description">Project Description</label>
+                <input type="text" class="w-input" maxlength="256" name="new-project-description">
+              <div class="horizontal-flex top20">
+                    <input type="button" value="Add Project" data-wait="Please wait..." class="submit-btn project-create w-button">
+                    <div class="cancel-btn project-create">Cancel</div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <div class="container">
       <div class="project-info">
         <div class="project-info-display">
-          <h3>Your first project</h3>
-          <div>This is a description of your first project</div>
+          <h3 id="project-name">Your first project</h3>
+          <div id="project-description">This is a description of your first project</div>
           <div class="horizontal-flex edit-project-info">
             <div>Edit</div><img src="images/pen.svg" alt="" class="utility-btn"></div>
         </div>
         <div class="edit-project-form w-form">
           <form>
-              <input type="text" class="text-field large w-input" maxlength="256" name="project-name" placeholder="Project name">
-              <input type="text" class="text-field w-input" maxlength="256" name="project-description" placeholder="Project description">
+              <input type="text" class="text-field large w-input" maxlength="256" name="edit-project-name" placeholder="Project name">
+              <input type="text" class="text-field w-input" maxlength="256" name="edit-project-description" placeholder="Project description">
             <div class="horizontal-flex">
                 <input type="button" value="Submit" data-wait="Please wait..." class="submit-btn edit-project w-button">
                 <div class="cancel-btn edit-project">Cancel</div>
@@ -43,47 +60,8 @@
         </div>
         <div class="divider"></div>
       </div>
-      <div class="to-do">
-        <div class="edit-task-form w-form">
-          <form>
-              <input type="text" class="edit-task-name w-input" maxlength="256" name="Task-name" data-name="Task name" placeholder="task name..." id="Task-name">
-            <div class="horizontal-flex">
-                <input type="button" value="Submit" data-wait="Please wait..." class="submit-btn edit-task w-button">
-                <div class="cancel-btn edit-task">Cancel</div>
-            </div>
-          </form>
-        </div>
-        <div class="task-container">
-          <div class="horizontal-flex">
-            <div class="checkbox complete"></div>
-            <div class="task-name">Your first to do list item</div>
-          </div>
-          <div class="horizontal-flex">
-            <div class="date-text">Due 9 hours</div>
-            <img src="images/pen.svg" alt="" class="utility-btn edit-task">
-            <img src="images/icons8-trash-1.svg" alt="" class="utility-btn delete-task"></div>
-        </div>
-      </div>
-      <div class="to-do">
-        <div class="edit-task-form w-form">
-          <form>
-                <input type="text" class="edit-task-name w-input" maxlength="256" name="project-description-3" data-name="Project Description 3" placeholder="Project description" id="project-description-3">
-                <div class="horizontal-flex">
-                    <input type="button" value="Submit" data-wait="Please wait..." class="submit-btn edit-task w-button">
-                    <div class="cancel-btn task-edit">Cancel</div>
-                </div>
-          </form>
-        </div>
-        <div class="task-container">
-          <div class="horizontal-flex">
-            <div class="checkbox"></div>
-            <div class="task-name">Your first to do list item</div>
-          </div>
-          <div class="horizontal-flex">
-            <div class="date-text">Due 9 hours</div>
-            <img src="images/pen.svg" alt="" class="utility-btn edit-task">
-            <img src="images/icons8-trash-1.svg" alt="" class="utility-btn delete-task"></div>
-        </div>
+      <div id="all-tasks">
+        <!--Tasks are dynamically inserted using JavaScript-->
       </div>
       <div class="add-btn" id="add-task">
         <div class="plus">+</div>
@@ -95,22 +73,6 @@
             <div class="horizontal-flex">
                 <input type="button" value="Add Task" class="submit-btn task-create w-button">
                 <div class="cancel-btn task-create">Cancel</div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="new-project-block">
-    <div class="new-project-container">
-      <div class="create-project w-form">
-        <form>
-            <label for="project-name">Project Name</label>
-            <input type="text" class="text-field w-input" maxlength="256" name="new-project-name" required="">
-            <label for="project-description">Project Description</label>
-            <input type="text" class="w-input" maxlength="256" name="new-project-description">
-          <div class="horizontal-flex top20">
-                <input type="button" value="Add Project" data-wait="Please wait..." class="submit-btn project-create w-button">
-                <div class="cancel-btn project-create">Cancel</div>
           </div>
         </form>
       </div>
