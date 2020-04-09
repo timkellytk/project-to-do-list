@@ -36,8 +36,8 @@
               <input type="text" class="text-field large w-input" maxlength="256" name="project-name" data-name="project name" placeholder="Project name" id="project-name-2">
               <input type="text" class="text-field w-input" maxlength="256" name="project-description" data-name="project description" placeholder="Project description" id="project-description-2">
             <div class="horizontal-flex">
-                <input type="submit" value="Submit" data-wait="Please wait..." class="submit-btn task-create w-button">
-                <div class="cancel-btn task-create">Cancel</div>
+                <input type="submit" value="Submit" data-wait="Please wait..." class="submit-btn edit-project w-button">
+                <div class="cancel-btn task-edit">Cancel</div>
             </div>
           </form>
         </div>
@@ -70,7 +70,7 @@
                 <input type="text" class="edit-task-name w-input" maxlength="256" name="project-description-3" data-name="Project Description 3" placeholder="Project description" id="project-description-3">
                 <div class="horizontal-flex">
                     <input type="submit" value="Submit" data-wait="Please wait..." class="submit-btn edit-task w-button">
-                    <div class="cancel-btn task-create">Cancel</div>
+                    <div class="cancel-btn task-edit">Cancel</div>
                 </div>
           </form>
         </div>
@@ -85,15 +85,15 @@
             <img src="images/icons8-trash-1.svg" alt="" class="edit-icon-btn"></div>
         </div>
       </div>
-      <div class="add-btn">
+      <div class="add-btn" id="add-task">
         <div class="plus">+</div>
         <div class="add-project-text">Add Task</div>
       </div>
       <div class="create-task w-form">
         <form>
-            <input type="text" class="text-field w-input" maxlength="256" name="task" data-name="task" placeholder="e.g. Read everyday p3 @goals #learning" id="task">
+            <input type="text" class="text-field w-input" maxlength="256" name="new-task" data-name="task" placeholder="e.g. Read everyday p3 @goals #learning" id="task">
             <div class="horizontal-flex">
-                <input type="submit" value="Add Task" data-wait="Please wait..." class="submit-btn task-create w-button">
+                <input type="button" value="Add Task" class="submit-btn task-create w-button">
                 <div class="cancel-btn task-create">Cancel</div>
           </div>
         </form>
