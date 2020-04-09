@@ -23,3 +23,6 @@
 - Users should be able to edit / delete to-do's
 - You should use local storage to save a user's project and to-do's 
 - You want to add an external library with webpack to make the due date's more readable for the to-do items https://github.com/date-fns/date-fns
+
+# Inspiration
+- To use sortable.js and date-fns - https://ranmaru22.github.io/the_odin_project/to-do/dist/

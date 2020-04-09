@@ -105,3 +105,25 @@ const newTask = (() => {
 newTask.addBtn.addEventListener('click', newTask.show)
 newTask.cancelBtn.addEventListener('click', newTask.hide)
 newTask.submitBtn.addEventListener('click', newTask.create)
+
+// Edit task form
+const editTask = (() => {
+    btns = document.querySelectorAll('.utility-btn.edit-task');
+
+    function show() {
+        console.log('the show works for editTask')
+    }
+    /* 
+    I realised I need a data-value for each task in the to-do-list in the array.
+    This way I can reference the appropriate form and such
+    */
+    return {
+        btns,
+        show,
+    }
+})();
+
+editTask.btns.forEach((btn) => {
+    btn.addEventListener('click', editTask.show)
+});
+

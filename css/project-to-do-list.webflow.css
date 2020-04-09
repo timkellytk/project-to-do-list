@@ -231,14 +231,14 @@ body {
   text-decoration: underline;
 }
 
-.edit-icon-btn {
+.utility-btn {
   width: 15px;
   margin-left: 20px;
   -webkit-transition: opacity 200ms ease;
   transition: opacity 200ms ease;
 }
 
-.edit-icon-btn:hover {
+.utility-btn:hover {
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
@@ -256,11 +256,6 @@ body {
   right: 0%;
   bottom: auto;
   cursor: pointer;
-}
-
-.edit-icon {
-  width: 20px;
-  margin-left: 10px;
 }
 
 .edit-project {
