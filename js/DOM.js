@@ -41,11 +41,68 @@ const newProject = (() => {
       cancelBtn,
       submitBtn,
     };
-  })();
+})();
 
 newProject.addBtn.addEventListener('click', newProject.show);
 newProject.cancelBtn.addEventListener('click', newProject.hide);
 newProject.submitBtn.addEventListener('click', newProject.create);
+
+// Edit project form
+
+const editProject = (() => {
+    const editBtn = document.querySelector('.edit-project-info');
+    const cancelBtn = document.querySelector('.cancel-btn.edit-project')
+    const submitBtn = document.querySelector('.submit-btn.edit-project')
+    const _content = document.querySelector('.project-info-display');
+    const _name = document.querySelector('[name = project-name]');
+    const _description = document.querySelector('[name = project-description]');
+    const _form = document.querySelector('.edit-project-form');
+
+    function _showForm() {
+        _form.style.display = 'block';
+    };
+    function _hideForm() {
+        _form.style.display = 'none';
+    };
+    function _showContent() {
+        _content.style.display = 'block'
+    }
+    function _hideContent() {
+        _content.style.display = 'none';
+    };
+
+    function show() {
+        _showForm();
+        _hideContent();
+    };
+    function hide() {
+        _showContent();
+        _hideForm();
+    }
+    function _clear() {
+        _name.value = '';
+        _description.value = '';
+    }
+    function submit() {
+        console.log(_name.value);
+        console.log(_description.value);
+        hide();
+        _clear();
+    }
+    
+    return {
+        editBtn,
+        cancelBtn,
+        submitBtn,
+        show,
+        hide,
+        submit,
+    }
+})();
+
+editProject.editBtn.addEventListener('click', editProject.show)
+editProject.cancelBtn.addEventListener('click', editProject.hide)
+editProject.submitBtn.addEventListener('click', editProject.submit)
 
 // New task form
 const newTask = (() => {
@@ -126,4 +183,6 @@ const editTask = (() => {
 editTask.btns.forEach((btn) => {
     btn.addEventListener('click', editTask.show)
 });
+
+// Delete task
 
