@@ -19,8 +19,8 @@ const newProject = (() => {
         _description.value = '';
     };
     function _submit() {
-        console.log(_name.value);
-        console.log(_description.value);
+        createProject(_name.value, _description.value);
+        switchProject();
     };
 
     function create() {
@@ -46,6 +46,66 @@ const newProject = (() => {
 newProject.addBtn.addEventListener('click', newProject.show);
 newProject.cancelBtn.addEventListener('click', newProject.hide);
 newProject.submitBtn.addEventListener('click', newProject.create);
+
+// New task form
+const newTask = (() => {
+    const addBtn = document.querySelector('#add-task')
+    const cancelBtn = document.querySelector('.cancel-btn.task-create')
+    const submitBtn = document.querySelector('.submit-btn.task-create')
+    const _form = document.querySelector('.create-task')
+    const _task = document.querySelector('[name = new-task]');
+
+
+    function _showForm() {
+        _form.style.display = 'block' 
+    };
+    function _hideForm() {
+        _form.style.display = 'none' 
+    }
+    function _showAddBtn() {
+        addBtn.style.display = 'block'
+    }
+    function _hideAddBtn() {
+        addBtn.style.display = 'none'
+    }
+    function _clearTask() {
+        _task.value = '';
+    }
+
+    function show() {
+        _showForm();
+        _hideAddBtn();
+    }
+    function hide() {
+        _showAddBtn();
+        _hideForm();
+        _clearTask();
+    }
+
+    function create() {
+        if(_task.value !== '') {
+            createToDo(_task.value)
+            refreshTasks();
+            _clearTask();
+            hide();
+        } else {
+            alert('Please enter a name for your task')
+        }
+    }
+
+    return {
+        show,
+        hide,
+        create,
+        addBtn,
+        cancelBtn,
+        submitBtn,
+    };
+})();
+
+newTask.addBtn.addEventListener('click', newTask.show)
+newTask.cancelBtn.addEventListener('click', newTask.hide)
+newTask.submitBtn.addEventListener('click', newTask.create)
 
 // Edit project form
 
@@ -103,65 +163,6 @@ const editProject = (() => {
 editProject.editBtn.addEventListener('click', editProject.show)
 editProject.cancelBtn.addEventListener('click', editProject.hide)
 editProject.submitBtn.addEventListener('click', editProject.submit)
-
-// New task form
-const newTask = (() => {
-    const addBtn = document.querySelector('#add-task')
-    const cancelBtn = document.querySelector('.cancel-btn.task-create')
-    const submitBtn = document.querySelector('.submit-btn.task-create')
-    const _form = document.querySelector('.create-task')
-    const _task = document.querySelector('[name = new-task]');
-
-
-    function _showForm() {
-        _form.style.display = 'block' 
-    };
-    function _hideForm() {
-        _form.style.display = 'none' 
-    }
-    function _showAddBtn() {
-        addBtn.style.display = 'block'
-    }
-    function _hideAddBtn() {
-        addBtn.style.display = 'none'
-    }
-    function _clearTask() {
-        _task.value = '';
-    }
-
-    function show() {
-        _showForm();
-        _hideAddBtn();
-    }
-    function hide() {
-        _showAddBtn();
-        _hideForm();
-        _clearTask();
-    }
-
-    function create() {
-        if(_task.value !== '') {
-            console.log(_task.value)
-            _clearTask();
-            hide();
-        } else {
-            alert('Please enter a name for your task')
-        }
-    }
-
-    return {
-        show,
-        hide,
-        create,
-        addBtn,
-        cancelBtn,
-        submitBtn,
-    };
-})();
-
-newTask.addBtn.addEventListener('click', newTask.show)
-newTask.cancelBtn.addEventListener('click', newTask.hide)
-newTask.submitBtn.addEventListener('click', newTask.create)
 
 // Edit task form
 const editTask = (() => {

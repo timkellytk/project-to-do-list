@@ -1,4 +1,24 @@
 // Loading projects into DOM layer
+pageLoad();
+
+function pageLoad() {
+    loadProjects();
+    loadActiveProjectInfo();
+    loadActiveTasks();
+}
+
+function switchProject() {
+    clearProjects();
+    clearTasks();
+    loadProjects();
+    loadActiveProjectInfo();
+    loadActiveTasks();
+}
+
+function refreshTasks() {
+    clearTasks();
+    loadActiveTasks();
+}
 
 function loadProjects() {
     allProjects.forEach((project) => {
@@ -23,7 +43,10 @@ function loadProjects() {
     })
 }
 
-loadProjects();
+function clearProjects() {
+    const container = document.querySelector('#all-projects')
+    container.innerHTML = '';
+}
 
 function loadActiveProjectInfo() {
     let activeProject = allProjects.filter((project) => project.active === true)
@@ -40,8 +63,6 @@ function loadActiveProjectInfo() {
     description.textContent = headingDescription
     inputDescripton.value = headingDescription
 }
-
-loadActiveProjectInfo();
 
 function loadTasks(task) {
     const contentContainer = document.querySelector('#all-tasks')
@@ -128,11 +149,6 @@ function loadTasks(task) {
     contentContainer.appendChild(toDo)
 }
 
-function addTaskEventListeners(editIcon, deleteIcon) {
-    editIcon.addEventListener('click', () => console.log('edit the thing'))
-    deleteIcon.addEventListener('click', () => console.log('delete the thing'))
-}
-
 function loadActiveTasks() {
     allProjects.forEach((project) => {
         project.toDoItems.forEach((task) => {
@@ -143,4 +159,7 @@ function loadActiveTasks() {
     })
 }
 
-loadActiveTasks();
+function clearTasks() {
+    const contentContainer = document.querySelector('#all-tasks')
+    contentContainer.innerHTML = '';
+}
