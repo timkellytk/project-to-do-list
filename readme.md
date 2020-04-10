@@ -1,10 +1,10 @@
 # The steps
 - Create a basic HTML page with JavaScript (Done)
 - Create the JavaScript module to-do-list logic using console.logs (Done)
-- Create the HTML and CSS in Webflow
-- Install npm and webpack
-- Test webpack is working for 2+ modules
-- Create the JavaScript module for the DOM layer elements
+- Create the HTML and CSS in Webflow (done)
+- Install npm and webpack (done)
+- Test webpack is working for 2+ modules (done)
+- Create the JavaScript module for the DOM layer elements 
 - Add local storage for the to-do-list 
 - Add an external library with npm to make the due date's more readable for the to-do items
 

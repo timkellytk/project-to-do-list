@@ -6,7 +6,7 @@ function pageLoad() {
     loadActiveTasks();
 }
 
-function switchProject() {
+function changeProject() {
     refreshProjects();
     refreshTasks();
 }
@@ -23,23 +23,21 @@ function refreshProjects() {
 }
 
 function loadProjects() {
-    allProjects.forEach((project) => {
+    allProjects.forEach((project, index) => {
         const container = document.querySelector('#all-projects')
         const div = document.createElement('div')
         div.classList.add('project-text')
         div.classList.add('project-container')
+        div.dataset.value = index
         if (project.active === true) {
             div.classList.add('active')
         }
-
-        const text = document.createElement('div')
-        text.textContent = project.name
-
+        
+        div.textContent = project.name
         const image = document.createElement('img')
         image.src = 'images/icons8-trash-1.svg'
         image.classList.add('utility-btn')
 
-        div.appendChild(text)
         div.appendChild(image)
         container.appendChild(div)
     })
@@ -166,4 +164,4 @@ function clearTasks() {
     contentContainer.innerHTML = '';
 }
 
-export {pageLoad, switchProject, refreshProjects, refreshTasks} 
+export {pageLoad, changeProject, refreshProjects, refreshTasks} 

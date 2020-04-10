@@ -1,5 +1,5 @@
 import {createProject, createToDo, selectActiveProject} from './logic'
-import {switchProject, refreshProjects, refreshTasks} from './loadDOM'
+import {changeProject, refreshProjects, refreshTasks} from './loadDOM'
 
 const newProject = (() => {
     const addBtn = document.querySelector('#add-project');
@@ -22,7 +22,7 @@ const newProject = (() => {
     };
     function _submit() {
         createProject(_name.value, _description.value);
-        switchProject();
+        changeProject();
     };
 
     function create() {
@@ -45,7 +45,6 @@ const newProject = (() => {
     };
 })();
 
-// New task form
 const newTask = (() => {
     const addBtn = document.querySelector('#add-task')
     const cancelBtn = document.querySelector('.cancel-btn.task-create')
@@ -99,8 +98,6 @@ const newTask = (() => {
         submitBtn,
     };
 })();
-
-// Edit project form
 
 const editProject = (() => {
     const editBtn = document.querySelector('.edit-project-info');
