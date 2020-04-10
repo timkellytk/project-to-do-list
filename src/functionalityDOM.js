@@ -103,8 +103,6 @@ const newTask = (() => {
 // Edit project form
 
 const editProject = (() => {
-    let activeProject = selectActiveProject();
-
     const editBtn = document.querySelector('.edit-project-info');
     const cancelBtn = document.querySelector('.cancel-btn.edit-project')
     const submitBtn = document.querySelector('.submit-btn.edit-project')
@@ -136,6 +134,7 @@ const editProject = (() => {
         _hideForm();
     }
     function submit() {
+        let activeProject = selectActiveProject();
         activeProject.name = _name.value
         activeProject.description = _description.value
         refreshProjects();
