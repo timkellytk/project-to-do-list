@@ -1,5 +1,10 @@
-import {pageLoad} from './loadDOM'
+import {allProjects, createProject, createToDo, clearActiveProjects} from './logic'
+import {pageLoad, changeProject} from './loadDOM'
 import {newProject, newTask, editProject} from './functionalityDOM'
+
+// Test values
+createProject('project 1', 'description 1')
+createToDo('hello old pal')
 
 // Load DOM layer
 pageLoad()
@@ -25,8 +30,19 @@ editProject.submitBtn.addEventListener('click', editProject.submit)
 function createProjectBtnListeners() {
     let projectBtns = document.querySelectorAll('.project-text.project-container')
     projectBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => console.log(e.target.dataset.value))
+        btn.addEventListener('click', (e) => {
+            swapProjects(e);
+        })
     });
+}
+
+function swapProjects(e) {
+    clearActiveProjects();
+    let index = e.target.dataset.value
+    let project = allProjects[index]
+    project.active = true
+    changeProject()
+    createProjectBtnListeners()
 }
 
 /* 
