@@ -3,10 +3,7 @@ import {newProject, newTask, editProject, swapProjects} from './functionalityDOM
 // Add static event listeners
 newProject.addBtn.addEventListener('click', newProject.show);
 newProject.cancelBtn.addEventListener('click', newProject.hide);
-newProject.submitBtn.addEventListener('click', () => {
-    newProject.create();
-    createProjectBtnListeners();
-}); 
+newProject.submitBtn.addEventListener('click', newProject.create); 
 
 newTask.addBtn.addEventListener('click', newTask.show)
 newTask.cancelBtn.addEventListener('click', newTask.hide)
@@ -25,7 +22,5 @@ function createProjectBtnListeners() {
         })
     });
 }
-
-
 
 export {createProjectBtnListeners}

@@ -1,5 +1,5 @@
 import {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects} from './logic'
-import {changeProject, pageLoad, refreshProjects, refreshTasks} from './loadDOM'
+import {changeProject, refreshProjects, refreshTasks} from './loadDOM'
 import {createProjectBtnListeners} from './listeners'
 
 const newProject = (() => {
@@ -24,6 +24,7 @@ const newProject = (() => {
     function _submit() {
         createProject(_name.value, _description.value);
         changeProject();
+        createProjectBtnListeners
     };
 
     function create() {
