@@ -1,4 +1,6 @@
-import {newProject, newTask, editProject, swapProjects, deleteProjects} from './functionalityDOM'
+import {deleteProject, swapProject} from './logic'
+import {pageRefresh, changeProject} from './loadDOM'
+import {newProject, newTask, editProject} from './functionalityDOM'
 
 // Static event listeners
 newProject.addBtn.addEventListener('click', newProject.show);
@@ -18,14 +20,16 @@ function createProjectBtnListeners() {
     let projectBtns = document.querySelectorAll('.project-text.project-container')
     projectBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            swapProjects(e.target.dataset.value);
+            swapProject(e.target.dataset.value);
+            changeProject();
         })
     });
 
     let deleteProjectBtns = document.querySelectorAll('.utility-btn.delete-project')
     deleteProjectBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            deleteProjects(e.target.parentNode.dataset.value)
+            deleteProject(e.target.parentNode.dataset.value)
+            pageRefresh();
         })
     })
 }

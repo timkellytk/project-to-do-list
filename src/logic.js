@@ -31,6 +31,27 @@ function clearActiveProjects() {
         obj.active = false;
     });
 }
+
+function swapProject(index) {
+    clearActiveProjects();
+    let project = allProjects[index]
+    project.active = true
+}
+
+function deleteProject(index) {
+    if (allProjects[index].active === true) {
+        allProjects.splice(index, 1);
+
+        function lastProject() {
+            return (allProjects.length - 1)
+        }
+        let lastIndex = lastProject()
+        allProjects[lastIndex].active = true
+    } else {    
+        allProjects.splice(index, 1);
+    }
+}
+
 function selectActiveToDoArray() {
     let activeProject = allProjects.filter(project => project.active === true);
     let activeToDoArray = activeProject[0].toDoItems;
@@ -43,4 +64,4 @@ function selectActiveToDo(){
     return activeToDo[0];
 }
 
-export {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects}
+export {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects, deleteProject, swapProject}

@@ -151,29 +151,4 @@ const editProject = (() => {
     }
 })();
 
-function swapProjects(index) {
-    clearActiveProjects();
-    let project = allProjects[index]
-    project.active = true
-    changeProject()
-}
-
-function deleteProjects(index) {
-    if (allProjects[index].active === true) {
-        allProjects.splice(index, 1);
-
-        function lastProject() {
-            return (allProjects.length - 1)
-        }
-        let lastIndex = lastProject()
-        console.log(allProjects[lastIndex])
-        allProjects[lastIndex].active = true
-        console.log(allProjects[lastIndex])
-    } else {    
-        allProjects.splice(index, 1);
-    }
-    pageRefresh();
-    console.log(allProjects)
-}
-
-export {newProject, newTask, editProject, swapProjects, deleteProjects}
+export {newProject, newTask, editProject}
