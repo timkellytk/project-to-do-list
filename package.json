@@ -1,0 +1,25 @@
+{
+  "name": "project-to-do-list",
+  "version": "1.0.0",
+  "description": "- Create a basic HTML page with JavaScript (Done) - Create the JavaScript module to-do-list logic using console.logs (Done) - Create the HTML and CSS in Webflow - Install npm and webpack - Test webpack is working for 2+ modules - Create the JavaScript module for the DOM layer elements - Add local storage for the to-do-list  - Add an external library with npm to make the due date's more readable for the to-do items",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timkellytk/project-to-do-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timkellytk/project-to-do-list/issues"
+  },
+  "homepage": "https://github.com/timkellytk/project-to-do-list#readme",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
