@@ -110,12 +110,15 @@ newTask.submitBtn.addEventListener('click', newTask.create)
 // Edit project form
 
 const editProject = (() => {
+    let activeProject = selectActiveProject();
+
     const editBtn = document.querySelector('.edit-project-info');
     const cancelBtn = document.querySelector('.cancel-btn.edit-project')
     const submitBtn = document.querySelector('.submit-btn.edit-project')
+    
     const _content = document.querySelector('.project-info-display');
-    const _name = document.querySelector('[name = project-name]');
-    const _description = document.querySelector('[name = project-description]');
+    const _name = document.querySelector('[name = edit-project-name]');
+    const _description = document.querySelector('[name = edit-project-description]');
     const _form = document.querySelector('.edit-project-form');
 
     function _showForm() {
@@ -139,15 +142,11 @@ const editProject = (() => {
         _showContent();
         _hideForm();
     }
-    function _clear() {
-        _name.value = '';
-        _description.value = '';
-    }
     function submit() {
-        console.log(_name.value);
-        console.log(_description.value);
+        activeProject.name = _name.value
+        activeProject.description = _description.value
+        refreshProjects();
         hide();
-        _clear();
     }
     
     return {

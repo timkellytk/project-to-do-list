@@ -8,16 +8,19 @@ function pageLoad() {
 }
 
 function switchProject() {
-    clearProjects();
-    clearTasks();
-    loadProjects();
-    loadActiveProjectInfo();
-    loadActiveTasks();
+    refreshProjects();
+    refreshTasks();
 }
 
 function refreshTasks() {
     clearTasks();
     loadActiveTasks();
+}
+
+function refreshProjects() {
+    clearProjects();
+    loadProjects();
+    loadActiveProjectInfo();
 }
 
 function loadProjects() {
