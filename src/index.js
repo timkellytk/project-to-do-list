@@ -10,9 +10,6 @@ pageLoad()
 
 
 /* 
-What I need to create:
-- Add data-value = x for each project
-- Use this data-value to swap the active projects
-- Use this data-value to delete projects
-
+Next cab off the rank:
+- Create delete project icon event listener
 */

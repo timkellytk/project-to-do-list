@@ -1,6 +1,7 @@
 import {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects} from './logic'
-import {changeProject, refreshProjects, refreshTasks} from './loadDOM'
+import {pageRefresh, changeProject, refreshProjects, refreshTasks} from './loadDOM'
 import {createProjectBtnListeners} from './listeners'
+import { CodeNode } from 'source-list-map';
 
 const newProject = (() => {
     const addBtn = document.querySelector('#add-project');
@@ -150,31 +151,29 @@ const editProject = (() => {
     }
 })();
 
-function swapProjects(e) {
+function swapProjects(index) {
     clearActiveProjects();
-    let index = e.target.dataset.value
     let project = allProjects[index]
     project.active = true
     changeProject()
-    createProjectBtnListeners()
 }
 
-/* 
-const editTask = (() => {
-    btns = document.querySelectorAll('.utility-btn.edit-task');
+function deleteProjects(index) {
+    if (allProjects[index].active === true) {
+        allProjects.splice(index, 1);
 
-    function show() {
-        console.log('the show works for editTask')
+        function lastProject() {
+            return (allProjects.length - 1)
+        }
+        let lastIndex = lastProject()
+        console.log(allProjects[lastIndex])
+        allProjects[lastIndex].active = true
+        console.log(allProjects[lastIndex])
+    } else {    
+        allProjects.splice(index, 1);
     }
+    pageRefresh();
+    console.log(allProjects)
+}
 
-    return {
-        btns,
-        show,
-    }
-})();
-
-editTask.btns.forEach((btn) => {
-    btn.addEventListener('click', editTask.show)
-});
- */
-export {newProject, newTask, editProject, swapProjects}
+export {newProject, newTask, editProject, swapProjects, deleteProjects}

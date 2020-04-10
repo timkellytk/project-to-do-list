@@ -8,6 +8,11 @@ function pageLoad() {
     createProjectBtnListeners();
 }
 
+function pageRefresh() {
+    refreshTasks();
+    refreshProjects();
+}
+
 function changeProject() {
     refreshProjects();
     refreshTasks();
@@ -40,6 +45,7 @@ function loadProjects() {
         const image = document.createElement('img')
         image.src = 'images/icons8-trash-1.svg'
         image.classList.add('utility-btn')
+        image.classList.add('delete-project')
 
         div.appendChild(image)
         container.appendChild(div)
@@ -103,7 +109,7 @@ function loadTasks(task) {
 
                     const deleteIcon = document.createElement('img')
                     deleteIcon.classList.add('utility-btn')
-                    deleteIcon.classList.add('delte-task')
+                    deleteIcon.classList.add('delete-task')
                     deleteIcon.src = 'images/icons8-trash-1.svg'
 
                 right.appendChild(date)
@@ -167,4 +173,4 @@ function clearTasks() {
     contentContainer.innerHTML = '';
 }
 
-export {pageLoad, changeProject, refreshProjects, refreshTasks} 
+export {pageLoad, pageRefresh, changeProject, refreshProjects, refreshTasks} 
