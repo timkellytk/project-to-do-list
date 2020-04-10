@@ -1,5 +1,6 @@
-import {createProject, createToDo, selectActiveProject} from './logic'
-import {changeProject, refreshProjects, refreshTasks} from './loadDOM'
+import {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects} from './logic'
+import {changeProject, pageLoad, refreshProjects, refreshTasks} from './loadDOM'
+import {createProjectBtnListeners} from './listeners'
 
 const newProject = (() => {
     const addBtn = document.querySelector('#add-project');
@@ -148,6 +149,14 @@ const editProject = (() => {
     }
 })();
 
+function swapProjects(e) {
+    clearActiveProjects();
+    let index = e.target.dataset.value
+    let project = allProjects[index]
+    project.active = true
+    changeProject()
+    createProjectBtnListeners()
+}
 
 /* 
 const editTask = (() => {
@@ -167,4 +176,4 @@ editTask.btns.forEach((btn) => {
     btn.addEventListener('click', editTask.show)
 });
  */
-export {newProject, newTask, editProject}
+export {newProject, newTask, editProject, swapProjects}
