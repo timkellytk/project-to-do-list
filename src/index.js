@@ -5,6 +5,7 @@ import {newProject, newTask, editProject} from './functionalityDOM'
 // Loading DOM layer
 createProject('project 1', 'description 1')
 createToDo('hello old pal')
+createToDo('the second to-do')
 pageLoad()
 
 

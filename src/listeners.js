@@ -34,4 +34,14 @@ function createProjectBtnListeners() {
     })
 }
 
-export {createProjectBtnListeners}
+function createTaskBtnListeners() {
+    let taskBtns = document.querySelectorAll('.to-do')
+    taskBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            console.log(e.target)
+        })
+    })
+
+}
+
+export {createProjectBtnListeners, createTaskBtnListeners}

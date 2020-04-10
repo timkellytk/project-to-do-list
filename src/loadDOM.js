@@ -1,11 +1,12 @@
 import {allProjects} from './logic'
-import {createProjectBtnListeners} from './listeners'
+import {createProjectBtnListeners, createTaskBtnListeners} from './listeners'
 
 function pageLoad() {
     loadProjects();
     loadActiveProjectInfo();
     loadActiveTasks();
     createProjectBtnListeners();
+    createTaskBtnListeners();
 }
 
 function pageRefresh() {
@@ -21,13 +22,14 @@ function changeProject() {
 function refreshTasks() {
     clearTasks();
     loadActiveTasks();
+    createTaskBtnListeners();
 }
 
 function refreshProjects() {
     clearProjects();
     loadProjects();
-    createProjectBtnListeners();
     loadActiveProjectInfo();
+    createProjectBtnListeners();
 }
 
 function loadProjects() {

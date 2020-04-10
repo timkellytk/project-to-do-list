@@ -26,3 +26,6 @@
 
 # Inspiration
 - To use sortable.js and date-fns - https://ranmaru22.github.io/the_odin_project/to-do/dist/
+
+# Known bugs
+- Breaks when you delete the last project
