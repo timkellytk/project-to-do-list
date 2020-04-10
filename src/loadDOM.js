@@ -166,4 +166,4 @@ function clearTasks() {
     contentContainer.innerHTML = '';
 }
 
-export {pageLoad} 
+export {pageLoad, switchProject, refreshProjects, refreshTasks} 

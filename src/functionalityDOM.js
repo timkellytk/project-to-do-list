@@ -1,4 +1,6 @@
-// New project form
+import {createProject, createToDo, selectActiveProject} from './logic'
+import {switchProject, refreshProjects, refreshTasks} from './loadDOM'
+
 const newProject = (() => {
     const addBtn = document.querySelector('#add-project');
     const cancelBtn = document.querySelector('.cancel-btn.project-create');
@@ -43,10 +45,6 @@ const newProject = (() => {
     };
 })();
 
-newProject.addBtn.addEventListener('click', newProject.show);
-newProject.cancelBtn.addEventListener('click', newProject.hide);
-newProject.submitBtn.addEventListener('click', newProject.create);
-
 // New task form
 const newTask = (() => {
     const addBtn = document.querySelector('#add-task')
@@ -54,7 +52,6 @@ const newTask = (() => {
     const submitBtn = document.querySelector('.submit-btn.task-create')
     const _form = document.querySelector('.create-task')
     const _task = document.querySelector('[name = new-task]');
-
 
     function _showForm() {
         _form.style.display = 'block' 
@@ -102,10 +99,6 @@ const newTask = (() => {
         submitBtn,
     };
 })();
-
-newTask.addBtn.addEventListener('click', newTask.show)
-newTask.cancelBtn.addEventListener('click', newTask.hide)
-newTask.submitBtn.addEventListener('click', newTask.create)
 
 // Edit project form
 
@@ -159,21 +152,15 @@ const editProject = (() => {
     }
 })();
 
-editProject.editBtn.addEventListener('click', editProject.show)
-editProject.cancelBtn.addEventListener('click', editProject.hide)
-editProject.submitBtn.addEventListener('click', editProject.submit)
 
-// Edit task form
+/* 
 const editTask = (() => {
     btns = document.querySelectorAll('.utility-btn.edit-task');
 
     function show() {
         console.log('the show works for editTask')
     }
-    /* 
-    I realised I need a data-value for each task in the to-do-list in the array.
-    This way I can reference the appropriate form and such
-    */
+
     return {
         btns,
         show,
@@ -183,9 +170,5 @@ const editTask = (() => {
 editTask.btns.forEach((btn) => {
     btn.addEventListener('click', editTask.show)
 });
-
-// Mark task as complete
-
-
- // Delete task
-
+ */
+export {newProject, newTask, editProject}

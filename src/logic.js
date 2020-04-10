@@ -1,7 +1,7 @@
 // Factory functions
 const allProjects = [];
 const createProject = (name, description) => {
-    setAllProjectsInactive();
+    _setAllProjectsInactive();
     allProjects.push({
         name,
         description,
@@ -9,13 +9,20 @@ const createProject = (name, description) => {
         active: true,
     });
 }
+
+function _setAllProjectsInactive() {
+    allProjects.forEach((obj) => {
+        obj.active = false;
+    });
+}
+
 const createToDo = (name, dueDate) => {
     let activeProject = allProjects.filter(project => project.active === true);
     let toDoArray = activeProject[0].toDoItems;
     toDoArray.push({
         name, 
         dueDate,
-        active: true,
+        active: false,
         complete: false,
     });
 }
@@ -37,14 +44,6 @@ function selectActiveToDo(){
     return activeToDo[0];
 }
 
-// Active functions
-function setAllProjectsInactive() {
-    allProjects.forEach((obj) => {
-        obj.active = false;
-    });
-}
-
-// Project functions
 function deleteProject() {
     let activeProject = selectActiveProject();
     let index = allProjects.indexOf(activeProject);
@@ -60,7 +59,6 @@ function editAllProjectsInactive() {
     });
 }
 
-// To do functions
 function deleteToDo() {
     let toDoArray = selectActiveToDoArray();
     let toDo = selectActiveToDo();
@@ -75,5 +73,7 @@ function editToDoDueDate(dueDate) {
     let toDo = selectActiveToDo();
     toDo.dueDate = dueDate;
 }
+createProject('project 1', 'description 1')
+createToDo('hello old pal')
 
-export {allProjects, createProject, createToDo}
+export {allProjects, createProject, createToDo, selectActiveProject}
