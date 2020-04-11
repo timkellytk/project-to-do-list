@@ -8,6 +8,7 @@ if(localStorage.length == 0){
 } else {
     allProjects = JSON.parse(window.localStorage.getItem('user'))
 }
+
 pageLoad()
 
 export {allProjects}

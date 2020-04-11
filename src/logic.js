@@ -2,7 +2,7 @@ import {allProjects} from './index'
 import {storeMyProjects} from './loadDOM'
 
 const createProject = (name, description) => {
-    clearActiveProjects();
+    _clearActiveProjects();
     allProjects.push({
         name,
         description,
@@ -14,28 +14,17 @@ const createProject = (name, description) => {
 }
 
 function updateProject(name, description) {
-    let activeProject = selectActiveProject();
+    let activeProject = _selectActiveProject();
     activeProject.name = name
     activeProject.description = description
     storeMyProjects();
 }
 
 function swapProject(index) {
-    clearActiveProjects();
+    _clearActiveProjects();
     let project = allProjects[index]
     project.active = true
     storeMyProjects();
-}
-
-function selectActiveProject() {
-    let activeProjectArray = allProjects.filter(project => project.active === true)
-    return activeProjectArray[0];
-}
-
-function clearActiveProjects() {
-    allProjects.forEach((obj) => {
-        obj.active = false;
-    });
 }
 
 function deleteProject(index) {
@@ -66,7 +55,7 @@ const createToDo = (name, dueDate) => {
 }
 
 function completeToDo(index) {
-    let array = selectActiveToDoList();
+    let array = _selectActiveToDoList();
     let task = array[index]
     if (task.complete === false) {
         task.complete = true
@@ -77,7 +66,7 @@ function completeToDo(index) {
 }
 
 function updateToDo(index, name, dueDate) {
-    let activeToDoArray = selectActiveToDoList();
+    let activeToDoArray = _selectActiveToDoList();
     let activeToDo = activeToDoArray[index]
     activeToDo.name = name
     activeToDo.dueDate = dueDate
@@ -85,15 +74,25 @@ function updateToDo(index, name, dueDate) {
 }
 
 function deleteToDo(index){
-    let array = selectActiveToDoList();
+    let array = _selectActiveToDoList();
     array.splice(index, 1)
     storeMyProjects();
 }
 
-function selectActiveToDoList() {
+function _selectActiveProject() {
+    let activeProjectArray = allProjects.filter(project => project.active === true)
+    return activeProjectArray[0];
+}
+
+function _clearActiveProjects() {
+    allProjects.forEach((obj) => {
+        obj.active = false;
+    });
+}
+function _selectActiveToDoList() {
     let activeProject = allProjects.filter(project => project.active === true);
     let activeToDoArray = activeProject[0].toDoItems;
     return activeToDoArray;
 }
 
-export {createProject, createToDo, updateProject, selectActiveProject, clearActiveProjects, selectActiveToDoList, deleteProject, swapProject, completeToDo, updateToDo, deleteToDo}
+export {createProject, createToDo, updateProject, deleteProject, swapProject, completeToDo, updateToDo, deleteToDo}
