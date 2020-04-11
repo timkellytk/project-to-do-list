@@ -155,13 +155,13 @@ const editTask = (() => {
     function checkbox(btn) {
         btn.classList.toggle('complete')
     }
-    function showForm(index) {
+    function activateForm(index) {
         let editToDoForms = document.querySelectorAll('.edit-task-form')
         editToDoForms[index].style.display = 'block'
     }
     return {
         checkbox,
-        showForm,
+        activateForm,
     }
 })();
 

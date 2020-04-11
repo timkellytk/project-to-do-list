@@ -49,7 +49,7 @@ function createTaskBtnListeners() {
     taskName.forEach(btn => {
         btn.addEventListener('click', (e) => {
             let dataValue = e.target.parentNode.parentNode.parentNode.dataset.value
-            editTask.showForm(dataValue)
+            editTask.activateForm(dataValue)
         })
     })
     let deleteTaskBtns = document.querySelectorAll('.utility-btn.delete-task')

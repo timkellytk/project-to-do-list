@@ -146,11 +146,12 @@ function loadTasks(task, index) {
                     const containerBtns = document.createElement('div')
                     containerBtns.classList.add('horizontal-flex')
 
-                        const submitBtn = document.createElement('button')
+                        const submitBtn = document.createElement('input')
                         submitBtn.classList.add('w-button')
                         submitBtn.classList.add('submit-btn')
                         submitBtn.classList.add('edit-task')
-                        submitBtn.textContent = "Submit"
+                        submitBtn.setAttribute("type", "button")
+                        submitBtn.value = "Submit"
 
                         const cancelBtn = document.createElement('div')
                         cancelBtn.classList.add('cancel-btn')
