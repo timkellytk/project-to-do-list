@@ -1,4 +1,5 @@
 import {allProjects} from './index'
+import {storeMyProjects} from './loadDOM'
 
 const createProject = (name, description) => {
     clearActiveProjects();
@@ -9,13 +10,14 @@ const createProject = (name, description) => {
         active: true,
     });
     createToDo('Example task', '2014-02-09')
-
+    storeMyProjects();
 }
 
 function swapProject(index) {
     clearActiveProjects();
     let project = allProjects[index]
     project.active = true
+    storeMyProjects();
 }
 
 function selectActiveProject() {
@@ -41,6 +43,7 @@ function deleteProject(index) {
     } else {    
         allProjects.splice(index, 1);
     }
+    storeMyProjects();
 }
 
 const createToDo = (name, dueDate) => {
@@ -52,6 +55,7 @@ const createToDo = (name, dueDate) => {
         active: false,
         complete: false,
     });
+    storeMyProjects();
 }
 
 function completeToDo(index) {
@@ -62,11 +66,13 @@ function completeToDo(index) {
     } else {
         task.complete = false
     }
+    storeMyProjects();
 }
 
 function deleteToDo(index){
     let array = selectActiveToDoList();
     array.splice(index, 1)
+    storeMyProjects();
 }
 
 function selectActiveToDoList() {
