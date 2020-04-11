@@ -1,4 +1,3 @@
-import {allProjects} from './index'
 import {deleteProject, swapProject, completeToDo, deleteToDo} from './logic'
 import {pageRefresh, refreshToDoList, changeProject} from './loadDOM'
 import {newProject, newTask, editProject, editTask} from './functionalityDOM'
@@ -24,20 +23,22 @@ function createProjectBtnListeners() {
     let projectBtns = document.querySelectorAll('.project-text.project-container')
     projectBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            swapProject(e.target.dataset.value);
-            changeProject();
+            if (e.target.className === 'utility-btn delete-project') {
+                
+            } else {
+                let dataValue = e.target.dataset.value
+                swapProject(dataValue);
+                changeProject();
+            }
         })
     });
 
     let deleteProjectBtns = document.querySelectorAll('.utility-btn.delete-project')
     deleteProjectBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            if (allProjects.length > 1) {
-                deleteProject(e.target.parentNode.dataset.value)
-                pageRefresh();
-            } else {
-                alert('You can not delete the only project, rename the project or add a new project instead')
-            }
+            let dataValue = e.target.parentNode.dataset.value
+            deleteProject(dataValue)
+            pageRefresh();
         })
     })
 }
@@ -88,7 +89,6 @@ function createToDoBtnListeners() {
         })
     })
 }
-
 
 function editTaskBtnListeners(index) {
     let editToDoForms = document.querySelectorAll('.edit-task-form')

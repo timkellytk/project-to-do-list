@@ -14,6 +14,7 @@ const createProject = (name, description) => {
 }
 
 function updateProject(name, description) {
+    console.log(allProjects)
     let activeProject = _selectActiveProject();
     activeProject.name = name
     activeProject.description = description
@@ -28,18 +29,15 @@ function swapProject(index) {
 }
 
 function deleteProject(index) {
-    if (allProjects[index].active === true) {
+    if (allProjects.length > 1) {
         allProjects.splice(index, 1);
-
-        function lastProject() {
-            return (allProjects.length - 1)
-        }
+        function lastProject() { return (allProjects.length - 1) }
         let lastIndex = lastProject()
         allProjects[lastIndex].active = true
-    } else {    
-        allProjects.splice(index, 1);
+        storeMyProjects();
+    } else {
+        alert('You need atleast one project to store your to-do-list')
     }
-    storeMyProjects();
 }
 
 const createToDo = (name, dueDate) => {
