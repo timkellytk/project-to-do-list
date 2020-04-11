@@ -90,6 +90,9 @@ function loadTasks(task, index) {
 
                     const checkbox = document.createElement('div')
                     checkbox.classList.add('checkbox')
+                    if (task.complete === true) {
+                        checkbox.classList.add('complete')
+                    }
 
                     const name = document.createElement('div')
                     name.textContent = task.name

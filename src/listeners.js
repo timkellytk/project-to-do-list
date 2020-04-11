@@ -62,8 +62,9 @@ function createTaskBtnListeners() {
     let editTaskBtns = document.querySelectorAll('.utility-btn.edit-task')
     editTaskBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            console.log(e.target)
-        })
+            let dataValue = e.target.parentNode.parentNode.parentNode.dataset.value
+            editTask.activateForm(dataValue)
+            editTaskBtnListeners(dataValue)        })
     })
 }
 
