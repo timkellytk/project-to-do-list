@@ -83,7 +83,6 @@ const newTask = (() => {
     function create() {
         if(_task.value !== '') {
             createToDo(_task.value, _date.value)
-            console.log(allProjects)
             refreshTasks();
             _clearTask();
             hide();

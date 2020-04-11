@@ -1,4 +1,4 @@
-import {deleteProject, swapProject, completeTask} from './logic'
+import {deleteProject, swapProject, completeTask, deleteTask} from './logic'
 import {pageRefresh, refreshTasks, changeProject} from './loadDOM'
 import {newProject, newTask, editProject, editTask} from './functionalityDOM'
 
@@ -45,20 +45,24 @@ function createTaskBtnListeners() {
             editTask.checkbox(btn);
         })
     })
-    let taskName = document.querySelectorAll('.task-name')
-    taskName.forEach(btn => {
+    let taskNames = document.querySelectorAll('.task-name')
+    taskNames.forEach(btn => {
         btn.addEventListener('click', (e) => {
             let dataValue = e.target.parentNode.parentNode.parentNode.dataset.value
             editTask.activateForm(dataValue)
             editTaskBtnListeners(dataValue)
         })
     })
-    let deleteTaskBtns = document.querySelectorAll('.utility-btn.delete-task')
-    deleteTaskBtns.forEach(btn => {
+
+    let taskDueDates = document.querySelectorAll('.date-text')
+    taskDueDates.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            console.log(e.target)
+            let dataValue = e.target.parentNode.parentNode.parentNode.dataset.value
+            editTask.activateForm(dataValue)
+            editTaskBtnListeners(dataValue)
         })
     })
+
     let editTaskBtns = document.querySelectorAll('.utility-btn.edit-task')
     editTaskBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -66,7 +70,18 @@ function createTaskBtnListeners() {
             editTask.activateForm(dataValue)
             editTaskBtnListeners(dataValue)        })
     })
+
+    let deleteTaskBtns = document.querySelectorAll('.utility-btn.delete-task')
+    deleteTaskBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            let dataValue = e.target.parentNode.parentNode.parentNode.dataset.value
+            console.log(e.target)
+            deleteTask(dataValue);
+            refreshTasks();
+        })
+    })
 }
+
 
 function editTaskBtnListeners(index) {
     let editToDoForms = document.querySelectorAll('.edit-task-form')

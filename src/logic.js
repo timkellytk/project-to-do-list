@@ -54,13 +54,20 @@ function deleteProject(index) {
 
 function completeTask(index) {
     let array = selectActiveToDoArray();
-    array = array[index]
-    if (array.complete === false) {
-        array.complete = true
+    let task = array[index]
+    if (task.complete === false) {
+        task.complete = true
     } else {
-        array.complete = false
+        task.complete = false
     }
- }
+}
+
+function deleteTask(index){
+    let array = selectActiveToDoArray();
+    console.log(array)
+    array.splice(index, 1)
+    console.log(array)
+}
 
 function selectActiveToDoArray() {
     let activeProject = allProjects.filter(project => project.active === true);
@@ -81,4 +88,4 @@ Things I need to do:
 - Add a date picker to the form
 */
 
-export {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects, selectActiveToDoArray, deleteProject, swapProject, completeTask}
+export {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects, selectActiveToDoArray, deleteProject, swapProject, completeTask, deleteTask}
