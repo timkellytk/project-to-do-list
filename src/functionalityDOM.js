@@ -150,7 +150,12 @@ const editProject = (() => {
 })();
 
 const editTask = (() => {
-
+    function checkbox(btn) {
+        btn.classList.toggle('complete')
+    }
+    return {
+        checkbox,
+    }
 })();
 
-export {newProject, newTask, editProject}
+export {newProject, newTask, editProject, editTask}

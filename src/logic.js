@@ -52,10 +52,20 @@ function deleteProject(index) {
     }
 }
 
+function completeTask(index) {
+    let array = selectActiveToDoArray();
+    array = array[index]
+    if (array.complete === false) {
+        array.complete = true
+    } else {
+        array.complete = false
+    }
+}
+
 function selectActiveToDoArray() {
     let activeProject = allProjects.filter(project => project.active === true);
     let activeToDoArray = activeProject[0].toDoItems;
-    return activeToDoArray[0];
+    return activeToDoArray;
 }
 function selectActiveToDo(){
     let activeProject = allProjects.filter(project => project.active === true);
@@ -64,4 +74,4 @@ function selectActiveToDo(){
     return activeToDo[0];
 }
 
-export {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects, deleteProject, swapProject}
+export {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects, deleteProject, swapProject, completeTask}

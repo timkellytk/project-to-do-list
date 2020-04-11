@@ -1,6 +1,6 @@
-import {deleteProject, swapProject} from './logic'
+import {deleteProject, swapProject, completeTask} from './logic'
 import {pageRefresh, changeProject} from './loadDOM'
-import {newProject, newTask, editProject} from './functionalityDOM'
+import {newProject, newTask, editProject, editTask} from './functionalityDOM'
 
 // Static event listeners
 newProject.addBtn.addEventListener('click', newProject.show);
@@ -40,7 +40,8 @@ function createTaskBtnListeners() {
     let checkbox = document.querySelectorAll('.checkbox')
     checkbox.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            console.log(e.target)
+            completeTask(e.target.parentNode.parentNode.parentNode.dataset.value)
+            editTask.checkbox(btn);
         })
     })
     let taskName = document.querySelectorAll('.task-name')
