@@ -4,7 +4,7 @@
 - Create the HTML and CSS in Webflow (done)
 - Install npm and webpack (done)
 - Test webpack is working for 2+ modules (done)
-- Create the JavaScript module for the DOM layer elements 
+- Create the JavaScript module for the DOM layer elements (Done)
 - Add local storage for the to-do-list 
 - Add an external library with npm to make the due date's more readable for the to-do items
 
@@ -26,6 +26,3 @@
 
 # Inspiration
 - To use sortable.js and date-fns - https://ranmaru22.github.io/the_odin_project/to-do/dist/
-
-# Known bugs
-- Breaks when you delete the last project

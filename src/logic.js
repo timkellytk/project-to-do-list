@@ -8,6 +8,8 @@ const createProject = (name, description) => {
         toDoItems: [], 
         active: true,
     });
+    createToDo('Example task', '2014-02-09')
+
 }
 
 const createToDo = (name, dueDate) => {
