@@ -1,4 +1,5 @@
-import {allProjects, deleteProject, swapProject, completeToDo, deleteToDo} from './logic'
+import {allProjects} from './index'
+import {deleteProject, swapProject, completeToDo, deleteToDo} from './logic'
 import {pageRefresh, refreshToDoList, changeProject} from './loadDOM'
 import {newProject, newTask, editProject, editTask} from './functionalityDOM'
 

@@ -1,4 +1,5 @@
-const allProjects = [];
+import {allProjects} from './index'
+
 const createProject = (name, description) => {
     clearActiveProjects();
     allProjects.push({
@@ -11,6 +12,12 @@ const createProject = (name, description) => {
 
 }
 
+function swapProject(index) {
+    clearActiveProjects();
+    let project = allProjects[index]
+    project.active = true
+}
+
 function selectActiveProject() {
     let activeProjectArray = allProjects.filter(project => project.active === true)
     return activeProjectArray[0];
@@ -20,12 +27,6 @@ function clearActiveProjects() {
     allProjects.forEach((obj) => {
         obj.active = false;
     });
-}
-
-function swapProject(index) {
-    clearActiveProjects();
-    let project = allProjects[index]
-    project.active = true
 }
 
 function deleteProject(index) {
@@ -74,4 +75,4 @@ function selectActiveToDoList() {
     return activeToDoArray;
 }
 
-export {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects, selectActiveToDoList, deleteProject, swapProject, completeToDo, deleteToDo}
+export {createProject, createToDo, selectActiveProject, clearActiveProjects, selectActiveToDoList, deleteProject, swapProject, completeToDo, deleteToDo}

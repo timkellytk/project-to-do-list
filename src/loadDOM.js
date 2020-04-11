@@ -1,5 +1,9 @@
-import {allProjects} from './logic'
+import {allProjects} from './index'
 import {createProjectBtnListeners, createToDoBtnListeners} from './listeners'
+
+function storeMyProjects() {
+    window.localStorage.setItem('user', JSON.stringify(allProjects))
+}
 
 function pageLoad() {
     loadProjects();
@@ -190,4 +194,4 @@ function clearToDos() {
     contentContainer.innerHTML = '';
 }
 
-export {pageLoad, pageRefresh, changeProject, refreshProjects, refreshToDoList} 
+export {pageLoad, storeMyProjects, pageRefresh, changeProject, refreshProjects, refreshToDoList} 
