@@ -1,4 +1,4 @@
-import {deleteProject, swapProject, completeTask, deleteTask} from './logic'
+import {allProjects, deleteProject, swapProject, completeTask, deleteTask} from './logic'
 import {pageRefresh, refreshTasks, changeProject} from './loadDOM'
 import {newProject, newTask, editProject, editTask} from './functionalityDOM'
 
@@ -13,7 +13,10 @@ newTask.submitBtn.addEventListener('click', newTask.create)
 
 editProject.editBtn.addEventListener('click', editProject.show)
 editProject.cancelBtn.addEventListener('click', editProject.hide)
-editProject.submitBtn.addEventListener('click', editProject.submit)
+editProject.submitBtn.addEventListener('click', () => {
+        editProject.submit()
+        editProject.hide()
+    })
 
 // Dynamic event listeners
 function createProjectBtnListeners() {
@@ -28,8 +31,12 @@ function createProjectBtnListeners() {
     let deleteProjectBtns = document.querySelectorAll('.utility-btn.delete-project')
     deleteProjectBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            deleteProject(e.target.parentNode.dataset.value)
-            pageRefresh();
+            if (allProjects.length > 1) {
+                deleteProject(e.target.parentNode.dataset.value)
+                pageRefresh();
+            } else {
+                alert('You can not delete the only project, rename the project or add a new project instead')
+            }
         })
     })
 }
@@ -75,7 +82,6 @@ function createTaskBtnListeners() {
     deleteTaskBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             let dataValue = e.target.parentNode.parentNode.parentNode.dataset.value
-            console.log(e.target)
             deleteTask(dataValue);
             refreshTasks();
         })
