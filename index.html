@@ -69,7 +69,10 @@
       </div>
       <div class="create-task w-form">
         <form>
-            <input type="text" class="text-field w-input" maxlength="256" name="new-task" data-name="task" placeholder="e.g. Read everyday p3 @goals #learning" id="task">
+            <div class="horizontal-flex">
+              <input type="text" class="text-field name w-input" maxlength="256" name="new-task" placeholder="e.g. Read everyday p3 @goals #learning" id="task">
+              <input type="date" class="text-field date w-input" id="date" name="new-date">
+            </div>
             <div class="horizontal-flex">
                 <input type="button" value="Add Task" class="submit-btn task-create w-button">
                 <div class="cancel-btn task-create">Cancel</div>
