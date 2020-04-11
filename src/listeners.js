@@ -1,5 +1,5 @@
-import {allProjects, deleteProject, swapProject, completeTask, deleteTask} from './logic'
-import {pageRefresh, refreshTasks, changeProject} from './loadDOM'
+import {allProjects, deleteProject, swapProject, completeToDo, deleteToDo} from './logic'
+import {pageRefresh, refreshToDoList, changeProject} from './loadDOM'
 import {newProject, newTask, editProject, editTask} from './functionalityDOM'
 
 // Static event listeners
@@ -41,14 +41,14 @@ function createProjectBtnListeners() {
     })
 }
 
-function createTaskBtnListeners() {
+function createToDoBtnListeners() {
     let form = document.querySelectorAll('.edit-task-form')
     
     let checkbox = document.querySelectorAll('.checkbox')
     checkbox.forEach(btn => {
         btn.addEventListener('click', (e) => {
             let dataValue = e.target.parentNode.parentNode.parentNode.dataset.value
-            completeTask(dataValue)
+            completeToDo(dataValue)
             editTask.checkbox(btn);
         })
     })
@@ -78,12 +78,12 @@ function createTaskBtnListeners() {
             editTaskBtnListeners(dataValue)        })
     })
 
-    let deleteTaskBtns = document.querySelectorAll('.utility-btn.delete-task')
-    deleteTaskBtns.forEach(btn => {
+    let deleteToDoBtns = document.querySelectorAll('.utility-btn.delete-task')
+    deleteToDoBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             let dataValue = e.target.parentNode.parentNode.parentNode.dataset.value
-            deleteTask(dataValue);
-            refreshTasks();
+            deleteToDo(dataValue);
+            refreshToDoList();
         })
     })
 }
@@ -97,11 +97,11 @@ function editTaskBtnListeners(index) {
     submitBtns[index].addEventListener('click', () => {
         editTask.submitForm(index)
         editTask.deactivateForm(index)
-        refreshTasks()
+        refreshToDoList()
     })
     
     let cancelBtns = document.querySelectorAll('.cancel-btn.edit-task')
     cancelBtns[index].addEventListener('click', () => editTask.deactivateForm(index))
 }
 
-export {createProjectBtnListeners, createTaskBtnListeners}
+export {createProjectBtnListeners, createToDoBtnListeners}

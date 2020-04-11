@@ -1,6 +1,5 @@
-import {allProjects, createProject, createToDo, selectActiveProject, selectActiveToDoArray} from './logic'
-import {pageRefresh, changeProject, refreshProjects, refreshTasks} from './loadDOM'
-import { CodeNode } from 'source-list-map';
+import {createProject, createToDo, selectActiveProject, selectActiveToDoList} from './logic'
+import {changeProject, refreshProjects, refreshToDoList} from './loadDOM'
 
 const newProject = (() => {
     const addBtn = document.querySelector('#add-project');
@@ -83,7 +82,7 @@ const newTask = (() => {
     function create() {
         if(_task.value !== '') {
             createToDo(_task.value, _date.value)
-            refreshTasks();
+            refreshToDoList();
             _clearTask();
             hide();
         } else {
@@ -111,26 +110,13 @@ const editProject = (() => {
     const _description = document.querySelector('[name = edit-project-description]');
     const _form = document.querySelector('.edit-project-form');
 
-    function _showForm() {
+    function show() {
         _form.style.display = 'block';
-    };
-    function _hideForm() {
-        _form.style.display = 'none';
-    };
-    function _showContent() {
-        _content.style.display = 'block'
-    }
-    function _hideContent() {
         _content.style.display = 'none';
     };
-
-    function show() {
-        _showForm();
-        _hideContent();
-    };
     function hide() {
-        _showContent();
-        _hideForm();
+        _content.style.display = 'block'
+        _form.style.display = 'none';
     }
     function submit() {
         let activeProject = selectActiveProject();
@@ -169,7 +155,7 @@ const editTask = (() => {
         _forms[index].style.display = 'none'
     }
     function submitForm(index) {
-        let activeToDoArray = selectActiveToDoArray();
+        let activeToDoArray = selectActiveToDoList();
         let activeToDo = activeToDoArray[index]
 
         let inputName = document.querySelectorAll('.edit-task.name')

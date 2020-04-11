@@ -1,16 +1,5 @@
-import {allProjects, createProject, createToDo, clearActiveProjects} from './logic'
-import {pageLoad, changeProject} from './loadDOM'
-import {newProject, newTask, editProject} from './functionalityDOM'
+import {createProject} from './logic'
+import {pageLoad} from './loadDOM'
 
-// Loading DOM layer
-createProject('project 1', 'description 1')
-createToDo('hello old pal', '2014-02-09')
-createToDo('the second to-do')
+createProject('Example project', 'This is a project based to-do list created for The Odin Project curriculum by Tim Kelly')
 pageLoad()
-
-
-
-/* 
-Next cab off the rank:
-- Create delete project icon event listener
-*/

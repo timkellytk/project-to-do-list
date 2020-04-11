@@ -1,28 +1,28 @@
 import {allProjects} from './logic'
-import {createProjectBtnListeners, createTaskBtnListeners} from './listeners'
+import {createProjectBtnListeners, createToDoBtnListeners} from './listeners'
 
 function pageLoad() {
     loadProjects();
     loadActiveProjectInfo();
-    loadActiveTasks();
+    loadActiveToDos();
     createProjectBtnListeners();
-    createTaskBtnListeners();
+    createToDoBtnListeners();
 }
 
 function pageRefresh() {
-    refreshTasks();
+    refreshToDoList();
     refreshProjects();
 }
 
 function changeProject() {
     refreshProjects();
-    refreshTasks();
+    refreshToDoList();
 }
 
-function refreshTasks() {
-    clearTasks();
-    loadActiveTasks();
-    createTaskBtnListeners();
+function refreshToDoList() {
+    clearToDos();
+    loadActiveToDos();
+    createToDoBtnListeners();
 }
 
 function refreshProjects() {
@@ -75,7 +75,7 @@ function loadActiveProjectInfo() {
     inputDescripton.value = headingDescription
 }
 
-function loadTasks(task, index) {
+function loadToDos(task, index) {
     const contentContainer = document.querySelector('#all-tasks')
 
         const toDo = document.createElement('div')
@@ -175,19 +175,19 @@ function loadTasks(task, index) {
     contentContainer.appendChild(toDo)
 }
 
-function loadActiveTasks() {
+function loadActiveToDos() {
     allProjects.forEach((project) => {
         project.toDoItems.forEach((task, index) => {
             if (project.active === true){
-                loadTasks(task, index);
+                loadToDos(task, index);
             }
         })
     })
 }
 
-function clearTasks() {
+function clearToDos() {
     const contentContainer = document.querySelector('#all-tasks')
     contentContainer.innerHTML = '';
 }
 
-export {pageLoad, pageRefresh, changeProject, refreshProjects, refreshTasks} 
+export {pageLoad, pageRefresh, changeProject, refreshProjects, refreshToDoList} 

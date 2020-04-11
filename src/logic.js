@@ -1,4 +1,3 @@
-// Factory functions
 const allProjects = [];
 const createProject = (name, description) => {
     clearActiveProjects();
@@ -12,22 +11,11 @@ const createProject = (name, description) => {
 
 }
 
-const createToDo = (name, dueDate) => {
-    let activeProject = allProjects.filter(project => project.active === true);
-    let toDoArray = activeProject[0].toDoItems;
-    toDoArray.push({
-        name, 
-        dueDate,
-        active: false,
-        complete: false,
-    });
-}
-
-// Select functions
 function selectActiveProject() {
     let activeProjectArray = allProjects.filter(project => project.active === true)
     return activeProjectArray[0];
 }
+
 function clearActiveProjects() {
     allProjects.forEach((obj) => {
         obj.active = false;
@@ -54,8 +42,19 @@ function deleteProject(index) {
     }
 }
 
-function completeTask(index) {
-    let array = selectActiveToDoArray();
+const createToDo = (name, dueDate) => {
+    let activeProject = allProjects.filter(project => project.active === true);
+    let toDoArray = activeProject[0].toDoItems;
+    toDoArray.push({
+        name, 
+        dueDate,
+        active: false,
+        complete: false,
+    });
+}
+
+function completeToDo(index) {
+    let array = selectActiveToDoList();
     let task = array[index]
     if (task.complete === false) {
         task.complete = true
@@ -64,30 +63,15 @@ function completeTask(index) {
     }
 }
 
-function deleteTask(index){
-    let array = selectActiveToDoArray();
-    console.log(array)
+function deleteToDo(index){
+    let array = selectActiveToDoList();
     array.splice(index, 1)
-    console.log(array)
 }
 
-function selectActiveToDoArray() {
+function selectActiveToDoList() {
     let activeProject = allProjects.filter(project => project.active === true);
     let activeToDoArray = activeProject[0].toDoItems;
     return activeToDoArray;
 }
-function selectActiveToDo(){
-    let activeProject = allProjects.filter(project => project.active === true);
-    let activeToDoArray = activeProject[0].toDoItems;
-    let activeToDo = activeToDoArray.filter(toDo => toDo.active === true);
-    return activeToDo[0];
-}
 
-/* 
-Things I need to do:
-- Show the edit task form when you click the pen or when you click the text
-- Delete the task when you click the rubbish icon
-- Add a date picker to the form
-*/
-
-export {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects, selectActiveToDoArray, deleteProject, swapProject, completeTask, deleteTask}
+export {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects, selectActiveToDoList, deleteProject, swapProject, completeToDo, deleteToDo}
