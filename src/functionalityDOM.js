@@ -1,4 +1,4 @@
-import {createProject, createToDo, selectActiveProject, selectActiveToDoList} from './logic'
+import {createProject, createToDo, updateProject, selectActiveToDoList} from './logic'
 import {changeProject, refreshProjects, refreshToDoList} from './loadDOM'
 
 const newProject = (() => {
@@ -119,9 +119,7 @@ const editProject = (() => {
         _form.style.display = 'none';
     }
     function submit() {
-        let activeProject = selectActiveProject();
-        activeProject.name = _name.value
-        activeProject.description = _description.value
+        updateProject(_name.value, _description.value);
         refreshProjects();
         hide();
     }

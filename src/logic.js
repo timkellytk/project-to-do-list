@@ -13,6 +13,13 @@ const createProject = (name, description) => {
     storeMyProjects();
 }
 
+function updateProject(name, description) {
+    let activeProject = selectActiveProject();
+    activeProject.name = name
+    activeProject.description = description
+    storeMyProjects();
+}
+
 function swapProject(index) {
     clearActiveProjects();
     let project = allProjects[index]
@@ -81,4 +88,4 @@ function selectActiveToDoList() {
     return activeToDoArray;
 }
 
-export {createProject, createToDo, selectActiveProject, clearActiveProjects, selectActiveToDoList, deleteProject, swapProject, completeToDo, deleteToDo}
+export {createProject, createToDo, updateProject, selectActiveProject, clearActiveProjects, selectActiveToDoList, deleteProject, swapProject, completeToDo, deleteToDo}
