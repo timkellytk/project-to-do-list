@@ -35,13 +35,32 @@ function createProjectBtnListeners() {
 }
 
 function createTaskBtnListeners() {
-    let taskBtns = document.querySelectorAll('.to-do')
-    taskBtns.forEach(btn => {
+    let form = document.querySelectorAll('.edit-task-form')
+
+    let checkbox = document.querySelectorAll('.checkbox')
+    checkbox.forEach(btn => {
         btn.addEventListener('click', (e) => {
             console.log(e.target)
         })
     })
-
+    let taskName = document.querySelectorAll('.task-name')
+    taskName.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            console.log(e.target)
+        })
+    })
+    let deleteTaskBtns = document.querySelectorAll('.utility-btn.delete-task')
+    deleteTaskBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            console.log(e.target)
+        })
+    })
+    let editTaskBtns = document.querySelectorAll('.utility-btn.edit-task')
+    editTaskBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            console.log(e.target)
+        })
+    })
 }
 
 export {createProjectBtnListeners, createTaskBtnListeners}

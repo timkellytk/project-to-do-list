@@ -1,6 +1,5 @@
 import {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects} from './logic'
 import {pageRefresh, changeProject, refreshProjects, refreshTasks} from './loadDOM'
-import {createProjectBtnListeners, createTaskBtnListeners} from './listeners'
 import { CodeNode } from 'source-list-map';
 
 const newProject = (() => {
@@ -148,6 +147,10 @@ const editProject = (() => {
         hide,
         submit,
     }
+})();
+
+const editTask = (() => {
+
 })();
 
 export {newProject, newTask, editProject}

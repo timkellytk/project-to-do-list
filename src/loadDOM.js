@@ -75,11 +75,12 @@ function loadActiveProjectInfo() {
     inputDescripton.value = headingDescription
 }
 
-function loadTasks(task) {
+function loadTasks(task, index) {
     const contentContainer = document.querySelector('#all-tasks')
 
         const toDo = document.createElement('div')
         toDo.classList.add('to-do')
+        toDo.dataset.value = index
 
             const toDoContainer = document.createElement('div')
             toDoContainer.classList.add('task-container')
@@ -162,9 +163,9 @@ function loadTasks(task) {
 
 function loadActiveTasks() {
     allProjects.forEach((project) => {
-        project.toDoItems.forEach((task) => {
+        project.toDoItems.forEach((task, index) => {
             if (project.active === true){
-                loadTasks(task);
+                loadTasks(task, index);
             }
         })
     })
