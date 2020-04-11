@@ -81,4 +81,4 @@ Things I need to do:
 - Add a date picker to the form
 */
 
-export {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects, deleteProject, swapProject, completeTask}
+export {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects, selectActiveToDoArray, deleteProject, swapProject, completeTask}

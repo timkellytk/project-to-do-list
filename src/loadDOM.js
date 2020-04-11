@@ -155,7 +155,7 @@ function loadTasks(task, index) {
 
                         const cancelBtn = document.createElement('div')
                         cancelBtn.classList.add('cancel-btn')
-                        cancelBtn.classList.add('task-edit')
+                        cancelBtn.classList.add('edit-task')
                         cancelBtn.textContent = "Cancel"
 
                     containerBtns.appendChild(submitBtn)

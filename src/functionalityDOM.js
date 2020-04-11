@@ -1,4 +1,4 @@
-import {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects} from './logic'
+import {allProjects, createProject, createToDo, selectActiveProject, selectActiveToDoArray} from './logic'
 import {pageRefresh, changeProject, refreshProjects, refreshTasks} from './loadDOM'
 import { CodeNode } from 'source-list-map';
 
@@ -156,12 +156,34 @@ const editTask = (() => {
         btn.classList.toggle('complete')
     }
     function activateForm(index) {
-        let editToDoForms = document.querySelectorAll('.edit-task-form')
-        editToDoForms[index].style.display = 'block'
+        const _tasks = document.querySelectorAll('.task-container')
+        const _forms = document.querySelectorAll('.edit-task-form')
+
+        _tasks[index].style.display = 'none'
+        _forms[index].style.display = 'block'
+    }
+    function deactivateForm(index) {
+        const _tasks = document.querySelectorAll('.task-container')
+        const _forms = document.querySelectorAll('.edit-task-form')
+
+        _tasks[index].style.display = 'flex'
+        _forms[index].style.display = 'none'
+    }
+    function submitForm(index) {
+        let activeToDoArray = selectActiveToDoArray();
+        let activeToDo = activeToDoArray[index]
+
+        let inputName = document.querySelectorAll('.edit-task.name')
+        let inputDate = document.querySelectorAll('.edit-task.date')
+
+        activeToDo.name = inputName[index].value
+        activeToDo.dueDate = inputDate[index].value
     }
     return {
         checkbox,
         activateForm,
+        deactivateForm,
+        submitForm,
     }
 })();
 

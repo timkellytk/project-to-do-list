@@ -1,5 +1,5 @@
 import {deleteProject, swapProject, completeTask} from './logic'
-import {pageRefresh, changeProject} from './loadDOM'
+import {pageRefresh, refreshTasks, changeProject} from './loadDOM'
 import {newProject, newTask, editProject, editTask} from './functionalityDOM'
 
 // Static event listeners
@@ -50,6 +50,7 @@ function createTaskBtnListeners() {
         btn.addEventListener('click', (e) => {
             let dataValue = e.target.parentNode.parentNode.parentNode.dataset.value
             editTask.activateForm(dataValue)
+            editTaskBtnListeners(dataValue)
         })
     })
     let deleteTaskBtns = document.querySelectorAll('.utility-btn.delete-task')
@@ -64,6 +65,21 @@ function createTaskBtnListeners() {
             console.log(e.target)
         })
     })
+}
+
+function editTaskBtnListeners(index) {
+    let editToDoForms = document.querySelectorAll('.edit-task-form')
+    editToDoForms[index].style.display = 'block'
+
+    let submitBtns = document.querySelectorAll('.submit-btn.edit-task')
+    submitBtns[index].addEventListener('click', () => {
+        editTask.submitForm(index)
+        editTask.deactivateForm(index)
+        refreshTasks()
+    })
+    
+    let cancelBtns = document.querySelectorAll('.cancel-btn.edit-task')
+    cancelBtns[index].addEventListener('click', () => editTask.deactivateForm(index))
 }
 
 export {createProjectBtnListeners, createTaskBtnListeners}
