@@ -1,4 +1,4 @@
-import {createProject, createToDo, updateProject, selectActiveToDoList} from './logic'
+import {createProject, createToDo, updateProject, updateToDo} from './logic'
 import {changeProject, refreshProjects, refreshToDoList} from './loadDOM'
 
 const newProject = (() => {
@@ -153,14 +153,12 @@ const editTask = (() => {
         _forms[index].style.display = 'none'
     }
     function submitForm(index) {
-        let activeToDoArray = selectActiveToDoList();
-        let activeToDo = activeToDoArray[index]
-
         let inputName = document.querySelectorAll('.edit-task.name')
         let inputDate = document.querySelectorAll('.edit-task.date')
+        let name = inputName[index].value
+        let dueDate = inputDate[index].value
 
-        activeToDo.name = inputName[index].value
-        activeToDo.dueDate = inputDate[index].value
+        updateToDo(index, name, dueDate)
     }
     return {
         checkbox,

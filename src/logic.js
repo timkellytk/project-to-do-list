@@ -76,6 +76,14 @@ function completeToDo(index) {
     storeMyProjects();
 }
 
+function updateToDo(index, name, dueDate) {
+    let activeToDoArray = selectActiveToDoList();
+    let activeToDo = activeToDoArray[index]
+    activeToDo.name = name
+    activeToDo.dueDate = dueDate
+    storeMyProjects();
+}
+
 function deleteToDo(index){
     let array = selectActiveToDoList();
     array.splice(index, 1)
@@ -88,4 +96,4 @@ function selectActiveToDoList() {
     return activeToDoArray;
 }
 
-export {createProject, createToDo, updateProject, selectActiveProject, clearActiveProjects, selectActiveToDoList, deleteProject, swapProject, completeToDo, deleteToDo}
+export {createProject, createToDo, updateProject, selectActiveProject, clearActiveProjects, selectActiveToDoList, deleteProject, swapProject, completeToDo, updateToDo, deleteToDo}
