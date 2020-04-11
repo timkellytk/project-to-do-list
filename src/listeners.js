@@ -36,18 +36,20 @@ function createProjectBtnListeners() {
 
 function createTaskBtnListeners() {
     let form = document.querySelectorAll('.edit-task-form')
-
+    
     let checkbox = document.querySelectorAll('.checkbox')
     checkbox.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            completeTask(e.target.parentNode.parentNode.parentNode.dataset.value)
+            let dataValue = e.target.parentNode.parentNode.parentNode.dataset.value
+            completeTask(dataValue)
             editTask.checkbox(btn);
         })
     })
     let taskName = document.querySelectorAll('.task-name')
     taskName.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            console.log(e.target)
+            let dataValue = e.target.parentNode.parentNode.parentNode.dataset.value
+            editTask.showForm(dataValue)
         })
     })
     let deleteTaskBtns = document.querySelectorAll('.utility-btn.delete-task')

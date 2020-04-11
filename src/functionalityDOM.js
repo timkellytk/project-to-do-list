@@ -52,6 +52,7 @@ const newTask = (() => {
     const submitBtn = document.querySelector('.submit-btn.task-create')
     const _form = document.querySelector('.create-task')
     const _task = document.querySelector('[name = new-task]');
+    const _date = document.querySelector('[name = new-date]')
 
     function _showForm() {
         _form.style.display = 'block' 
@@ -81,7 +82,8 @@ const newTask = (() => {
 
     function create() {
         if(_task.value !== '') {
-            createToDo(_task.value)
+            createToDo(_task.value, _date.value)
+            console.log(allProjects)
             refreshTasks();
             _clearTask();
             hide();
@@ -153,8 +155,13 @@ const editTask = (() => {
     function checkbox(btn) {
         btn.classList.toggle('complete')
     }
+    function showForm(index) {
+        let editToDoForms = document.querySelectorAll('.edit-task-form')
+        editToDoForms[index].style.display = 'block'
+    }
     return {
         checkbox,
+        showForm,
     }
 })();
 

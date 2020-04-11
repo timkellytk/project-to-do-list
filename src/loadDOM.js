@@ -131,7 +131,17 @@ function loadTasks(task, index) {
 
                     const inputName = document.createElement('input')
                     inputName.classList.add('w-input')
-                    inputName.classList.add('edit-task-name')
+                    inputName.classList.add('edit-task')
+                    inputName.classList.add('name')
+                    inputName.setAttribute("type", "text")
+                    inputName.value = task.name
+
+                    const inputDate = document.createElement('input')
+                    inputDate.classList.add('w-input')
+                    inputDate.classList.add('edit-task')
+                    inputDate.classList.add('date')
+                    inputDate.setAttribute("type", "date")
+                    inputDate.value = task.dueDate
 
                     const containerBtns = document.createElement('div')
                     containerBtns.classList.add('horizontal-flex')
@@ -141,7 +151,6 @@ function loadTasks(task, index) {
                         submitBtn.classList.add('submit-btn')
                         submitBtn.classList.add('edit-task')
                         submitBtn.textContent = "Submit"
-                        submitBtn.min
 
                         const cancelBtn = document.createElement('div')
                         cancelBtn.classList.add('cancel-btn')
@@ -152,6 +161,7 @@ function loadTasks(task, index) {
                     containerBtns.appendChild(cancelBtn)
 
                 form.appendChild(inputName)
+                form.appendChild(inputDate)
                 form.appendChild(containerBtns)
 
             toDoForm.appendChild(form)

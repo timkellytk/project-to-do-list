@@ -60,7 +60,7 @@ function completeTask(index) {
     } else {
         array.complete = false
     }
-}
+ }
 
 function selectActiveToDoArray() {
     let activeProject = allProjects.filter(project => project.active === true);
@@ -73,5 +73,12 @@ function selectActiveToDo(){
     let activeToDo = activeToDoArray.filter(toDo => toDo.active === true);
     return activeToDo[0];
 }
+
+/* 
+Things I need to do:
+- Show the edit task form when you click the pen or when you click the text
+- Delete the task when you click the rubbish icon
+- Add a date picker to the form
+*/
 
 export {allProjects, createProject, createToDo, selectActiveProject, clearActiveProjects, deleteProject, swapProject, completeTask}

@@ -194,6 +194,15 @@ body {
   border-radius: 3px;
 }
 
+.text-field.name {
+  width: 75%;
+}
+
+.text-field.date {
+  margin-left: 1%;
+  width: 24%;
+}
+
 .text-field.large {
   height: 50px;
   font-size: 22px;
@@ -278,10 +287,25 @@ body {
   align-items: center;
 }
 
-.edit-task-name {
+.edit-task {
   margin-right: 15px;
   margin-bottom: 0px;
   border-radius: 3px;
+}
+
+.edit-task.name {
+  margin-right: 15px;
+  margin-bottom: 0px;
+  border-radius: 3px;
+  width: 75%;
+}
+
+.edit-task.date {
+  margin-right: 15px;
+  margin-bottom: 0px;
+  border-radius: 3px;
+  margin-left: 1%;
+  width: 24%;
 }
 
 .edit-task-form {
