@@ -146,6 +146,7 @@ function loadToDos(task, index) {
 
                 const form = document.createElement('form')
                 form.classList.add('flex-form')
+                form.setAttribute('onSubmit', 'return false')
 
                     const inputName = document.createElement('input')
                     inputName.classList.add('w-input')
