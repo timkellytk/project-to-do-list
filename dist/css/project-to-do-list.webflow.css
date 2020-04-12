@@ -111,7 +111,6 @@ body {
   align-items: center;
   border-radius: 3px;
   box-shadow: 1px 1px 3px 0 #ebebeb;
-  cursor: pointer;
 }
 
 .to-do:hover {
@@ -139,6 +138,7 @@ body {
 
 .task-name {
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .horizontal-flex {
@@ -242,6 +242,7 @@ body {
   margin-left: 20px;
   -webkit-transition: opacity 200ms ease;
   transition: opacity 200ms ease;
+  cursor: pointer;
 }
 
 .utility-btn:hover {
@@ -311,6 +312,10 @@ body {
 .edit-task-form {
   display: none;
   margin-bottom: 0px;
+}
+
+.date-text {
+  cursor: pointer;
 }
 
 .task-container {

@@ -9,7 +9,7 @@ const createProject = (name, description) => {
         toDoItems: [], 
         active: true,
     });
-    createToDo('Example task', '2014-02-09')
+    createToDo('Example task', '2020-08-09')
     storeMyProjects();
 }
 
