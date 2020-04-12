@@ -111,6 +111,7 @@ body {
   align-items: center;
   border-radius: 3px;
   box-shadow: 1px 1px 3px 0 #ebebeb;
+  cursor: move;
 }
 
 .to-do:hover {

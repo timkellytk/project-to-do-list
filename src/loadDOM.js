@@ -1,5 +1,11 @@
+import Sortable from 'sortablejs';
 import {allProjects} from './index'
 import {createProjectBtnListeners, createToDoBtnListeners} from './listeners'
+
+var allTasksContainer = document.getElementById('all-tasks');
+var allProjectsContainer = document.getElementById('all-projects');
+Sortable.create(allTasksContainer);
+Sortable.create(allProjectsContainer);
 
 function storeMyProjects() {
     window.localStorage.setItem('user', JSON.stringify(allProjects))
