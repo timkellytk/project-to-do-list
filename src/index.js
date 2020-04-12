@@ -9,7 +9,6 @@ if(localStorage.length == 0){
     allProjects = JSON.parse(window.localStorage.getItem('user'))
 }
 
-console.log(allProjects)
 pageLoad()
 
 export {allProjects}

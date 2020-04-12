@@ -110,7 +110,12 @@ function loadToDos(task, index) {
 
                     const date = document.createElement('div')
                     date.classList.add('date-text')
-                    date.textContent = task.dueDate
+                    
+                    var moment = require('moment');
+                    let dueDate = moment(task.dueDate, "YYYY-MM-DD").fromNow()
+                    if (dueDate != 'Invalid date') {
+                        date.textContent = dueDate
+                    }
 
                     const editIcon = document.createElement('img')
                     editIcon.classList.add('utility-btn')
