@@ -25,7 +25,7 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "sortablejs": "^1.10.2"
   }
 }
